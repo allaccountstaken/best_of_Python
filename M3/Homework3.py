@@ -10,7 +10,8 @@ UVA ID: agp7dp
 #Q1: Dictionary basics: (2 pts)
  
 # Create a dictionary of 10 key-value pairs. Choose a domain that interests you.
-rgb_colors_dict = { "Black":(0,0,0),
+rgb_colors_dict = { # This is a dictionary of 10 RGB colors
+    "Black":(0,0,0), 
  	"White":(255,255,255),
  	"Red":(255,0,0),
     "Lime":(0,255,0),
@@ -47,17 +48,31 @@ result = float(user_num1 * user_num2)
 print("Hi, {}, Multiplying {} and {} is {}".format(user_name, user_num1, user_num2, result))
 
 
+
+
+
 #Q3: Converting code to use a while loop: (3 pts)
 
+answer = "Watson"
+print("Here is a guessing game. You get three tries.")
+n = 0
+print("What is the name of the computer that played on Jeopardy?")
 
+while n <3: # Rewrite the guessing game using a while loop 
+    
+    response = input("Your guess here: ")
+    if response == answer: 
+        print("That is right!") 
+        break # You may need to use the break statement or the continue statement in this solution
+    else:
+        print("Sorry. Guess again, "+str(2-n)+" (attempys left): ")
+        n = n + 1
+print("Game over")   
 
 """
-Rewrite the guessing game using a while loop (code in pyScript08.py -- Guessing game that asks the user to guess 
-                                              "What is the name of the computer that played on Jeopardy?")
-You may need to use if statements in this solution.
-You may need to use the break statement or the continue statement in this solution
+
 Remember to mimic the print statements after each try exactly like the original code (therefore, 
-remember to keep track of which try the guesser is on to output the appropriate response).
+remember to keep track of which try the guesser is on to output the appropriate response). -???
 
 """
 
