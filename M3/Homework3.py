@@ -23,10 +23,13 @@ rgb_colors_dict = { "Black":(0,0,0),
     }
 
 #Demonstrate retrieving at least three different values. Display each of the results.
-fav_colors = ["Black", "White", "Red"]
+fav_colors = ["Black", "White", "Red"] # Define 3 keys
+[rgb_colors_dict.get(color) for color in fav_colors] # Pull values for those keys in a list comprehension 
+
+
+# Alternatively, one can form a string in a for loop
 for color in fav_colors:
     print("My fav color "+color+" has the following RGB code: "+str(rgb_colors_dict.get(color)))
-
 
 
 
