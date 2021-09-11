@@ -38,10 +38,10 @@ except IOError:  # for general IO errors
     print("** You caught a general IOError! **")
     name = input("Enter the name of a file to open: ") # w2filegrades.txt
     file = open(name, 'r')
-#except FileNotFoundError:
-#    print("** FileNotFoundError >> Cannot open file! **")
-#    name = input("Enter the name of a file to open: ") # w2filegrades.txt
-#    file = open(name, 'r')    
+except FileNotFoundError:
+    print("** FileNotFoundError >> Cannot open file! **")
+    name = input("Enter the name of a file to open: ") # w2filegrades.txt
+    file = open(name, 'r')    
 except ZeroDivisionError:  # for divide by zero error
     print("** Cannot divide by zero! **")
     denom = int(input("Enter a non-zero denominator: "))
