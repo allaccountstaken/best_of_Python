@@ -55,27 +55,25 @@ print("Hi, {}, Multiplying {} and {} is {}".format(user_name, user_num1, user_nu
 
 answer = "Watson"
 print("Here is a guessing game. You get three tries.")
-n = 0
 print("What is the name of the computer that played on Jeopardy?")
+response = input("Type your answer here: ") # Ask user for input
+i = 1 # Keep record of number of guesses used, start with 1
 
-while n <3: # Rewrite the guessing game using a while loop 
-    
-    response = input("Your guess here: ")
-    if response == answer: 
-        print("That is right!") 
-        break # You may need to use the break statement or the continue statement in this solution
+while i <= 3:
+
+    if response == answer:
+        print("That is right!")
+        break
     else:
-        print("Sorry. Guess again, "+str(2-n)+" (attempys left): ")
-        n = n + 1
-print("Game over")   
-
-"""
-
-Remember to mimic the print statements after each try exactly like the original code (therefore, 
-remember to keep track of which try the guesser is on to output the appropriate response). -???
-
-"""
-
+        i = i + 1 # Increment the number of guesses used
+        if i == 2:
+            response = input("Sorry. Guess again: ") # Remember to mimic the print statements after each try exactly like the original code
+            continue
+        elif i == 3:
+            response = input("Sorry. One more guess: ") # keep track of which try the guesser is on to output the appropriate response
+            continue
+        else:
+            print("Sorry. No more guesses. The answer is " + answer + ".")
 
 
 #Q4: Counting each of the vowels: (3 pts)
