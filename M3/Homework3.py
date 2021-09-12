@@ -117,78 +117,55 @@ and functools.reduce() functions.
 
 
 
-"""
-Q7: Classes and Inheritance: (4 pts)
- 
-Create a base class called ACCOUNT.
-Account should have the following attributes: accountNumber and balance, which should be correctly initialized 
-in the constructor (_ _init_ _) method for the class."""
+
+# Q7: Classes and Inheritance: (4 pts)
+
+
 class ACCOUNT():
+    
+    
     def __init__(self, accountNumber, balance):
         self.accountNumber = accountNumber
         self.balance = balance
     
-"""
-Create a to-string (_ _str_ _) method that prints “Account number 1234” on one line and “Balance: 2000” on the 
-next line (example with account number of 1234 and balance of 2000)."""
     def __str__(self):
-        print("Account number "+self.accountNumber)
-        print("Balance: "+self.balance)
+      result = "Account number {}\r\nBalance: {}".format(
+          (self.accountNumber), (self.balance)
+          )
+      return result
 
 
-"""
-Create another class called CHECKING. This class should inherit from the Account class. Therefore, the Checking class
-is the derived class."""
 class CHECKING(ACCOUNT):
+    
 
-"""
-In addition to the accountNumber and balance attributes, the Checking class has a fee attribute (that is used when 
-withdrawing money from the Checking account). Initialize all variables correctly in the constructor (_ _init_ _) method."""
     def __init__(self, accountNumber, balance, fee):
         ACCOUNT.__init__(self, accountNumber, balance)
         self.fee = fee
-
-
-"""
-Create a to-string method (_ _str_ _) that is identical to the two-line to-string method of the Account class, 
-but has an additional header (a new first line): "Account type: Checking". Therefore, the to-string method 
-of this class should produce a three-line output."""
+        
     def __str__(self):
-        print("Account number "+self.accountNumber)
-        print("Balance: "+self.balance)
-        print("Account type: Checking")
+      result = "Account number {}\r\nBalance: {}\r\nAccount type: Checking".format(
+          (self.accountNumber), (self.balance)
+          )
+      return result
 
-"""
-Add a method getFee(self) that returns the fee attribute (remember to use: self.fee). """
     def getFee(self):
         return self.fee
 
-
-"""
-Add a method deposit(self, amount) that adds the "amount" to the balance. It doesn't produce any output or return anything."""
-
+    def deposit(self, amount):
+        self.balance = self.balance + amount
 
 
-
-"""
-Add a method withdraw(self, amount) that does the following: (1) checks to see if the amount to withdraw + fee 
-is greater than the balance; if so, display a message "Insufficient funds!", (2) otherwise, adjust the balance 
-so that the amount AND the fee are subtracted. (Remember when you make a withdrawal, there is a fee involved that 
-also needs to be subtracted from the balance. """
-
+    def withdraw(self, amount):
+        if amount+self.fee > self.balance: # checks the balance after transaction
+            print("Insufficient funds!")
+        else:
+            self.balance = self.balance -  amount - self.fee
 
 
-
-
-
-
-"""
--- Example: Balance is $500. If you want to withdraw $100, and if the fee is $10, the method checks 110 is not 
-greater than 500, so the resulting balance will be 500 - 100 - 10, so balance = $390.)
-To test this out: (1) create an instance of the Checking class (call it check1) with account number 1234 
-and a balance of 500 with a fee of 0.50, (2) print check1 out, (2) withdraw $100, (4) print check1 out, 
-(5) deposit $200, (6) print check1 out. See example below.
-"""
-
-
+check1 = CHECKING("1234", 500, 0.5)
+print(check1)
+check1.withdraw(100)
+print(check1)
+check1.deposit(200)
+print(check1)
 
