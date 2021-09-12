@@ -78,11 +78,18 @@ while i <= 3:
 
 #Q4: Counting each of the vowels: (3 pts)
  
-"""
-Using ONE for-loop, count the number of each of the vowels in a string (use the following: sentence = 
-                                                                        "are you suggesting coconuts migrate")
-Display how many a’s, e’s, i’s, o’s, and u’s are in the sentence.
-"""
+# Count the number of vowels in a longer string (sentence)
+sentence = "are you suggesting coconuts migrate"
+count = 0   # keep track of the vowels found
+letters = {'a':0, 'e':0, 'i':0, 'o':0, 'u':0} # initialize a dictionary to store counts of each desired letter
+
+for letter in sentence: # loop through all the elements of the input string
+    if letter in letters: # if letter matches the keys of desired letters...
+        letters[letter] += 1 # then, increment the respective count
+
+# Report back the original sentence and the counts of the desired letters
+print("\"" + sentence + "\"")
+print("These are the a’s, e’s, i’s, o’s, and u’s are in the sentence " + str(letters)) 
 
 
 
