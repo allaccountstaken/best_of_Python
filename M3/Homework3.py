@@ -49,8 +49,6 @@ print("Hi, {}, Multiplying {} and {} is {}".format(user_name, user_num1, user_nu
 
 
 
-
-
 #Q3: Converting code to use a while loop: (3 pts)
 
 answer = "Watson"
@@ -61,19 +59,19 @@ i = 1 # Keep record of number of guesses used, start with 1
 
 while i <= 3:
 
-    if response == answer:
-        print("That is right!")
-        break
-    else:
+    if response == answer: # check if response matches the answer
+        print("That is right!") 
+        break # if True, break the loop after saying "Congrats!"
+    else: # if False, then... 
         i = i + 1 # Increment the number of guesses used
         if i == 2:
-            response = input("Sorry. Guess again: ")
+            response = input("Sorry. Guess again: ") # if it's 2nd guess - 2 more to go
             continue
         elif i == 3:
-            response = input("Sorry. One more guess: ")
+            response = input("Sorry. One more guess: ") # if it's 3d guess - 1 more to go
             continue
         else:
-            print("Sorry. No more guesses. The answer is " + answer + ".")
+            print("Sorry. No more guesses. The answer is " + answer + ".") # if more than 3, terminate the game
 
 
 #Q4: Counting each of the vowels: (3 pts)
@@ -93,7 +91,6 @@ print("These are the a’s, e’s, i’s, o’s, and u’s are in the sentence "
 
 
 
-
 #Q5: Length of all the words in a sentence (based on exercise in pyScript13.py) (3 pts)
  
 sentence = "Use this for now later it can be made even longer" # input sentence of variable length, no punctuations
@@ -104,6 +101,7 @@ print(words_length) # print sorted results
 
 
 #Q6: Map-Filter-Reduce examples: (3 pts)
+
 def square_func(x): # a simple function for testing
     result = x * x    
     return result
@@ -118,6 +116,9 @@ def is_even(x): # a simple function for testing
 def sum(x, y): # a simple function for testing
     result = x + y
     return result
+
+
+
 
 def my_map_func(apply_func, iter):
     """
@@ -139,6 +140,9 @@ def my_map_func(apply_func, iter):
         result.append(apply_func(iter[i])) # apply the input function to every elements of the iterable, add to results
     
     return result # return the list of the results
+
+
+
 
 def my_filter_func(apply_func, iter):
     """
@@ -162,6 +166,8 @@ def my_filter_func(apply_func, iter):
             result.append(iter[i]) # add this element to the outpult list
   
     return result #return the list of the results
+
+
 
 
 
