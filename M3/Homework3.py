@@ -96,16 +96,19 @@ print("These are the a’s, e’s, i’s, o’s, and u’s are in the sentence "
 
 #Q5: Length of all the words in a sentence (based on exercise in pyScript13.py) (3 pts)
  
-"""
-Create a long sentence of words (assume NO punctuation).
-Put the words into a list (Hint: How are the words separated?). Separating words can be done before the list comprehension.
-Use a list comprehension to return each word along with the length of it. Use: (word, len(word)) in your list comprehension.
-Finally, print out each word and its length (you may use a simple for-loop to do this), but sort by smallest size first 
-(Hint: Search for a method that can sort a list. What do you have to do when you are trying to sort a list of tuples?)
-"""
+sentence = "Use this for now later it can be made even longer" # input sentence of variable length, no punctuations
+words_list = sentence.split() # build a list of words by splitting a string
+words_length = [(word, len(word)) for word in words_list] # build list of words and their lengths
+words_length.sort(key=lambda x: x[1]) # sorting inplace, selecting the second element (index=1) of the tuple
+print(words_length) # print sorted results
 
 
 #Q6: Map-Filter-Reduce examples: (3 pts)
+
+
+def my_map_func(x, y):
+    
+
  
 """
 In the PowerPoint slides describing "higher-order functions" (02-Python - Map Filter Reduce.pdf) 
