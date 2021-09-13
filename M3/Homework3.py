@@ -108,29 +108,67 @@ def square_func(x): # simple function for testing
     result = x * x    
     return result
 
-def my_map_func(apply_func, x):
+def is_even(x):
+    if x%2 ==0:
+        result = True
+    else:
+        result = False
+    return result
+
+def my_map_func(apply_func, iter):
     """
 
     Parameters
     ----------
-    apply_func : takes a 1-parameter function as the first argument
-    x : take an iterable type, i.e. list of numbers, to apply input func to.
+    apply_func : takes a 1-parameter function as the first argument.
+    iter : takes an iterable type, i.e. list of numbers, to apply the input function to.
 
     Returns
     -------
-    Output of the input function applied to iterable
+    Output a list if elements to which the input function was applied.
 
     """
 
-    result = []
-    for i in range(len(x)):
-        result.append(apply_func(x[i]))
-    return result    
+    result = [] # placeholder for output, empty for now
+    
+    for i in range(len(iter)):  # loop through all the elements of the input iterable
+        result.append(apply_func(iter[i])) # apply the input function to every elements of the iterable, add to results
+    
+    return result # return the list of the results
+
+def my_filter_func(apply_func, iter):
+    """
+    
+
+    Parameters
+    ----------
+    apply_func : takesa function of a boolean type, i.e. function that returns True or False depending on a logic.
+    iter : takes an iterable type, i.e. list of numbers, to apply the input function to.
+
+    Returns
+    -------
+    Output a list of elements that meet the logical condition, i.e. function eveluated to True.
+
+    """
+
+    result = [] # placeholder for output, empty for now
+    
+    for i in range(len(iter)): # loop through all the elements of the input iterable
+        if apply_func(iter[i]): # if input function eveluates to True on this iterable element, then ...
+            result.append(iter[i]) # add this element to the outpult list
+  
+    return result #return the list of the results
+
+
+
+def my_reduce():
+    pass
+
 
 # Testing below:
-numbers = [1, 2, 3, 4]
+numbers = [1, 2, 3, 4, 4, 5, 6, 7, 9]
 my_map_func(square_func, numbers)
-
+my_filter_func(is_even, numbers)
  
 """
 In the PowerPoint slides describing "higher-order functions" (02-Python - Map Filter Reduce.pdf) 
