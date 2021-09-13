@@ -104,10 +104,32 @@ print(words_length) # print sorted results
 
 
 #Q6: Map-Filter-Reduce examples: (3 pts)
+def square_func(x): # simple function for testing
+    result = x * x    
+    return result
 
+def my_map_func(apply_func, x):
+    """
 
-def my_map_func(x, y):
-    
+    Parameters
+    ----------
+    apply_func : takes a 1-parameter function as the first argument
+    x : take an iterable type, i.e. list of numbers, to apply input func to.
+
+    Returns
+    -------
+    Output of the input function applied to iterable
+
+    """
+
+    result = []
+    for i in range(len(x)):
+        result.append(apply_func(x[i]))
+    return result    
+
+# Testing below:
+numbers = [1, 2, 3, 4]
+my_map_func(square_func, numbers)
 
  
 """
