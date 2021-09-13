@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 """
 Created on Fri Sep 10 14:29:17 2021
-Homework Python I
-@author: dmitrymikhaylov
+Name of activity:Homework Python I
+Student name: Dmitry MIkhaylov
 UVA ID: agp7dp
 """
 
@@ -104,15 +104,19 @@ print(words_length) # print sorted results
 
 
 #Q6: Map-Filter-Reduce examples: (3 pts)
-def square_func(x): # simple function for testing
+def square_func(x): # a simple function for testing
     result = x * x    
     return result
 
-def is_even(x):
+def is_even(x): # a simple function for testing
     if x%2 ==0:
         result = True
     else:
         result = False
+    return result
+
+def sum(x, y): # a simple function for testing
+    result = x + y
     return result
 
 def my_map_func(apply_func, iter):
@@ -142,7 +146,7 @@ def my_filter_func(apply_func, iter):
 
     Parameters
     ----------
-    apply_func : takesa function of a boolean type, i.e. function that returns True or False depending on a logic.
+    apply_func : takes a function of a boolean type, i.e. function that returns True or False depending on a logic.
     iter : takes an iterable type, i.e. list of numbers, to apply the input function to.
 
     Returns
@@ -161,23 +165,34 @@ def my_filter_func(apply_func, iter):
 
 
 
-def my_reduce():
-    pass
+def my_reduce_func(apply_func, iter):
+    """
+    
+
+    Parameters
+    ----------
+    apply_func : takes a 2-argument function, i.e. sum(), and applys to elements of an iterable type.
+    iter : takes an iterable type, i.e. list of numbers, to apply the input function to.
+
+    Returns
+    -------
+    Output a single value hence the name reduce, i.e. iterable is reduced to a single value via functional transformation
+
+    """
+
+    result = 0 # placeholder for output, 0 for now
+    for i in range(len(iter)): # loop through all the elements of the input iterable
+        result = apply_func(result, iter[i]) # apply function to partial result ane the next element
+    
+    return result # return the final partial result, i.e. final result
+        
 
 
-# Testing below:
+# Testing for Q6:
 numbers = [1, 2, 3, 4, 4, 5, 6, 7, 9]
 my_map_func(square_func, numbers)
 my_filter_func(is_even, numbers)
- 
-"""
-In the PowerPoint slides describing "higher-order functions" (02-Python - Map Filter Reduce.pdf) 
-there are three examples: one illustrating the use of map, the next one illustrating the use of filter, 
-and the last one illustrating the use of reduce. Rewrite these three examples without using the map(), filter(), 
-and functools.reduce() functions.
-
-"""
-
+my_reduce_func(sum, [1, 2, 3])
 
 
 
@@ -225,6 +240,7 @@ class CHECKING(ACCOUNT):
             self.balance = self.balance -  amount - self.fee
 
 
+# Testing for Q7
 check1 = CHECKING("1234", 500, 0.5)
 print(check1)
 check1.withdraw(100)
