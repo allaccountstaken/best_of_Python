@@ -96,8 +96,9 @@ print("These are the a’s, e’s, i’s, o’s, and u’s are in the sentence "
 sentence = "Use this for now later it can be made even longer" # input sentence of variable length, no punctuations
 words_list = sentence.split() # build a list of words by splitting a string
 words_length = [(word, len(word)) for word in words_list] # build list of words and their lengths
-words_length.sort(key=lambda x: x[1]) # sorting inplace, selecting the second element (index=1) of the tuple
-print(words_length) # print sorted results
+# sselecting the second element (index=1) of the tuple
+words_sorted = sorted(words_length, key=lambda words_length: words_length[1]) 
+print(words_sorted) # print sorted results
 
 
 #Q6: Map-Filter-Reduce examples: (3 pts)
