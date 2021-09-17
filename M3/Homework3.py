@@ -196,7 +196,7 @@ my_reduce_func(sum, [1, 2, 3])
 # Q7: Classes and Inheritance: (4 pts)
 
 
-class ACCOUNT(): # Base class
+class ACCOUNT(): # Base class. Note: naming with caps as per requirements is unusual 
     
     
     def __init__(self, accountNumber, balance): # only has ID and Balance
@@ -210,7 +210,7 @@ class ACCOUNT(): # Base class
       return result
 
 
-class CHECKING(ACCOUNT): # Derived class inherits from the base class 
+class CHECKING(ACCOUNT): # Derived class inherits from the base class. Note: naming with caps as per requirements is unusual 
     
 
     def __init__(self, accountNumber, balance, fee): # and has a unique attribute, fee
