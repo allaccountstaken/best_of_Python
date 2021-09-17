@@ -30,7 +30,7 @@ fav_colors = ["Black", "White", "Red"] # Define 3 keys
 
 # Alternatively, one can form a string in a for loop
 for color in fav_colors:
-    print("My fav color "+color+" has the following RGB code: "+str(rgb_colors_dict.get(color)))
+    print("My favorite color "+color+" has the following RGB code: "+str(rgb_colors_dict.get(color)))
 
 
 
@@ -51,11 +51,11 @@ print("Hi, {}, Multiplying {} and {} is {}".format(user_name, user_num1, user_nu
 
 #Q3: Converting code to use a while loop: (3 pts)
 
-answer = "Watson"
+answer = "Watson" # <- this is the string we are aiming to guess
 print("Here is a guessing game. You get three tries.")
 print("What is the name of the computer that played on Jeopardy?")
 response = input("Type your answer here: ") # Ask user for input
-i = 1 # Keep record of number of guesses used, start with 1
+i = 1 # Keep recording guesses used, start with 1
 
 while i <= 3:
 
@@ -65,10 +65,10 @@ while i <= 3:
     else: # if False, then... 
         i = i + 1 # Increment the number of guesses used
         if i == 2:
-            response = input("Sorry. Guess again: ") # if it's 2nd guess - 2 more to go
+            response = input("Sorry. Guess again: ") # if it's 2nd guess - 1 more to go
             continue
         elif i == 3:
-            response = input("Sorry. One more guess: ") # if it's 3d guess - 1 more to go
+            response = input("Sorry. One more guess: ") # if it's 3d guess - 0 left 
             continue
         else:
             print("Sorry. No more guesses. The answer is " + answer + ".") # if more than 3, terminate the game
@@ -77,12 +77,11 @@ while i <= 3:
 #Q4: Counting each of the vowels: (3 pts)
  
 # Count the number of vowels in a longer string (sentence)
-sentence = "are you suggesting coconuts migrate"
-count = 0   # keep track of the vowels found
-letters = {'a':0, 'e':0, 'i':0, 'o':0, 'u':0} # initialize a dictionary to store counts of each desired letter
+sentence = "are you suggesting coconuts migrate" # intup strig
+letters = {'a':0, 'e':0, 'i':0, 'o':0, 'u':0} # initialize a dictionary to store counts of each target letter
 
 for letter in sentence: # loop through all the elements of the input string
-    if letter in letters: # if letter matches the keys of desired letters...
+    if letter in letters: # if letter matches the keys of target letters...
         letters[letter] += 1 # then, increment the respective count
 
 # Report back the original sentence and the counts of the desired letters
@@ -93,32 +92,33 @@ print("These are the a’s, e’s, i’s, o’s, and u’s are in the sentence "
 
 #Q5: Length of all the words in a sentence (based on exercise in pyScript13.py) (3 pts)
  
-sentence = "Use this for now later it can be made even longer" # input sentence of variable length, no punctuations
-words_list = sentence.split() # build a list of words by splitting a string
-words_length = [(word, len(word)) for word in words_list] # build list of words and their lengths
-# sselecting the second element (index=1) of the tuple
+sentence = "Use this for now later it can be made even longer" # input string of variable length, no punctuations
+words_list = sentence.split() # build a list of words by splitting the input string
+words_length = [(word, len(word)) for word in words_list] # build list of words and their corresponding lengths
+
+# sort by selecting the second element (index=1) of the tuple
 words_sorted = sorted(words_length, key=lambda words_length: words_length[1]) 
 print(words_sorted) # print sorted results
 
 
 #Q6: Map-Filter-Reduce examples: (3 pts)
 
-def square_func(x): # a simple function for testing
+def square_func(x): # a simple function for testing: squares input
     result = x * x    
     return result
 
-def is_even(x): # a simple function for testing
+
+def is_even(x): # a simple function for testing: checks binary condition
     if x%2 ==0:
         result = True
     else:
         result = False
     return result
 
-def sum(x, y): # a simple function for testing
+
+def sum(x, y): # a simple function for testing: adds 2 numbers
     result = x + y
     return result
-
-
 
 
 def my_map_func(apply_func, iter):
@@ -135,14 +135,10 @@ def my_map_func(apply_func, iter):
 
     """
 
-    result = [] # placeholder for output, empty for now
-    
+    result = [] # placeholder for output, empty for now    
     for i in range(len(iter)):  # loop through all the elements of the input iterable
         result.append(apply_func(iter[i])) # apply the input function to every elements of the iterable, add to results
-    
     return result # return the list of the results
-
-
 
 
 def my_filter_func(apply_func, iter):
@@ -160,16 +156,11 @@ def my_filter_func(apply_func, iter):
 
     """
 
-    result = [] # placeholder for output, empty for now
-    
+    result = [] # placeholder for output, empty for now    
     for i in range(len(iter)): # loop through all the elements of the input iterable
         if apply_func(iter[i]): # if input function eveluates to True on this iterable element, then ...
             result.append(iter[i]) # add this element to the outpult list
-  
     return result #return the list of the results
-
-
-
 
 
 def my_reduce_func(apply_func, iter):
@@ -190,7 +181,6 @@ def my_reduce_func(apply_func, iter):
     result = 0 # placeholder for output, 0 for now
     for i in range(len(iter)): # loop through all the elements of the input iterable
         result = apply_func(result, iter[i]) # apply function to partial result ane the next element
-    
     return result # return the final partial result, i.e. final result
         
 
@@ -206,41 +196,41 @@ my_reduce_func(sum, [1, 2, 3])
 # Q7: Classes and Inheritance: (4 pts)
 
 
-class ACCOUNT():
+class ACCOUNT(): # Base class
     
     
-    def __init__(self, accountNumber, balance):
+    def __init__(self, accountNumber, balance): # only has ID and Balance
         self.accountNumber = accountNumber
         self.balance = balance
     
-    def __str__(self):
+    def __str__(self): # and knows how to print itself using 2 lines
       result = "Account number {}\r\nBalance: {}".format(
           (self.accountNumber), (self.balance)
           )
       return result
 
 
-class CHECKING(ACCOUNT):
+class CHECKING(ACCOUNT): # Derived class inherits from the base class 
     
 
-    def __init__(self, accountNumber, balance, fee):
+    def __init__(self, accountNumber, balance, fee): # and has a unique attribute, fee
         ACCOUNT.__init__(self, accountNumber, balance)
         self.fee = fee
         
-    def __str__(self):
+    def __str__(self): # prints itself using 3 lines
       result = "Account number {}\r\nBalance: {}\r\nAccount type: Checking".format(
           (self.accountNumber), (self.balance)
           )
       return result
 
-    def getFee(self):
+    def getFee(self): # reports the fee
         return self.fee
 
-    def deposit(self, amount):
+    def deposit(self, amount): # increases the balance by adding the amount
         self.balance = self.balance + amount
 
 
-    def withdraw(self, amount):
+    def withdraw(self, amount): # decreases the balance by subtracting the amount and fee
         if amount+self.fee > self.balance: # checks the balance after transaction
             print("Insufficient funds!")
         else:
