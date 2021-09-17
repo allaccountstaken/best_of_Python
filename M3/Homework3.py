@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Fri Sep 10 14:29:17 2021
-Name of activity:Homework Python I
-Student name: Dmitry MIkhaylov
+Name of activity:"Homework 2: Python I (Module 3)"
+Student name: Dima Mikhaylov
 UVA ID: agp7dp
 """
 
